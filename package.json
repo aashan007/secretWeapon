@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/aashan007/secretWeapon/issues"
   },
-  "homepage": "https://github.com/aashan007/secretWeapon#readme"
+  "homepage": "https://github.com/aashan007/secretWeapon#readme",
+  "dependencies": {
+    "web3": "^1.0.0-beta.49"
+  }
 }
