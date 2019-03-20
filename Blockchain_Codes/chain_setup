@@ -1,4 +1,4 @@
-1. initialise the block
+1. initialise the block, this is the first block in the chain
 geth --datadir "$ethereum_home/youtube1" init "$ethereum_home/genesis.json"
 
 2. start the console
