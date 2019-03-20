@@ -1,33 +1,95 @@
 <!DOCTYPE html>
-<html lang=”en”>
+<html>
 <head>
- <meta charset=”UTF-8">
- <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
- <meta http-equiv=”X-UA-Compatible” content=”ie=edge”>
- <title>Document</title>
-<link rel=”stylesheet” type=”text/css” href=”index.css”>
-
-
-<!--<script src=”./node_modules/web3/dist/web3.min.js”></script>
--->
+<title></title>
 
 </head>
 <body>
- <div class=”container”>
-<h1>First Smart Contract</h1>
-<h2 id=”instructor”></h2>
-<label for=”name” class=”col-lg-2 control-label”>Instructor Name</label>
- <input id=”name” type=”text”>
-<label for=”name” class=”col-lg-2 control-label”>Instructor Age</label>
- <input id=”age” type=”text”>
-<button id=”button”>Update Instructor</button>
-</div>
+<div id=”metamask”></div>
+<h3>Insert and retrieve value on the blockchain</h3>
+<br />
+<table>
+<tr>
+<td></td>
+<td>
+<div id=”xbalance”></div>
+</td>
+</tr>
+<tr>
+<td>Insert a new value :</td>
+<td>
+<input id=”xvalue” type=”text” />
+<button id="Button1" onclick="setValue()">Add to blockchain</button>
+</td>
+</tr>
+</table>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    function getvalue() {
+try {
+// contract Abi defines all the variables,constants and functions of the smart contract. replace with your own abi
+var abi = 
+//
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "x",
+				"type": "uint256"
+			}
+		],
+		"name": "set",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "get",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
 
-<script type="index.js">
 
- </script>
+
+
+
+
+//
+
+//contract address. please change the address to your own
+var contractaddress = ‘0x552c75d9a7ffe01d9f50e520ce9bdba2fe6bd064   ’;
+
+//instantiate and connect to contract address via Abi
+var myAbi = web3.eth.contract(abi);
+var myfunction = myAbi.at(contractaddress);
+//call the get function of our SimpleStorage contract
+myfunction.get.call(function (err, xname) {
+if (err) { console.log(err) }
+if (xname) {
+//display value on the webpage
+document.getElementById(“xbalance”).innerHTML = “last inserted value into the blockchain is : “ + xname;
+}
+});
+}
+catch (err) {
+document.getElementById(“xbalance”).innerHTML = err;
+}
+}
+    </script>
+
+
 
 
 </body>
