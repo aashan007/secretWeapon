@@ -1,0 +1,27 @@
+1. initialise the block, this is the first block in the chain
+geth --datadir "$ethereum_home/youtube1" init "$ethereum_home/genesis.json"
+
+2. start the console
+geth --datadir "$ethereum_home/chain5" console 2 > console.log
+
+3.create a 2nd node
+geth --datadir "$ethereum_home/youtube1-a" init "$ethereum_home/genesis.json"
+
+4. Start on a different port and specify networkid
+geth --datadir "$ethereum_home/youtube1-a" --port 30304 --nodiscover --networkid 1234 console 2 > console.log
+
+5. get admin.nodeInfo enode from the second instance and copy it into admin.addPeer  in the first node
+
+6. Restart specifying IPC path
+geth --datadir "$ethereum_home/youtube1-a" --port 30304 --nodiscover --ipcpath "$ethereum_home/youtube1-a/geth.ipc" --networkid 1234 console 2 > console.log
+
+7 run geht attach to attach another window to the node using the ipc file
+geth attach ipc:$ethereum_home/youtube1-a/geth.ipc
+
+
+8 Key commands from the javascript console
+Personal.newAccount()
+Miner.start(1) - start mining
+eth.blockNumber - current block height
+eth.getBlock(number).miner - miner of block at that number
+eth.getBalance(account address) - current balance of that account
