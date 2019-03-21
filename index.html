@@ -19,19 +19,77 @@
 <td>Insert a new value :</td>
 <td>
 <input id=”xvalue” type=”text” />
-<button id="Button1" onclick="setValue()">Add to blockchain</button>
+<button id="Button1" onclick="setvalue()">Add to blockchain</button>
 </td>
 </tr>
 </table>
 
 <script>
     function getvalue() {
+    try {
+    // contract Abi defines all the variables,constants and functions of the smart contract. replace with your own abi
+    var abi = 
+    //
+    [
+	    {
+		    "constant": false,
+		    "inputs": [
+			    {
+			    	"name": "x",
+			    	"type": "uint256"
+			    }
+		    ],
+		"name": "set",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "get",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+
+//contract address. please change the address to your own
+var contractaddress = "0xe887ae411033ff479b202f8e30f5901659bc2c64";
+
+//instantiate and connect to contract address via Abi
+var myAbi = web3.eth.contract(abi);
+var myfunction = myAbi.at(contractaddress);
+//call the get function of our SimpleStorage contract
+myfunction.get.call(function (err, xname) {
+if (err) { console.log(err) }
+if (xname) {
+//display value on the webpage
+document.getElementById('xbalance').innerHTML = 'last inserted value into the blockchain is :' + xname;
+}
+});
+}
+catch (err) {
+    document.getElementById('xbalance').innerHTML = err;
+}
+}
+
+
+// function to add a new integer value to the blockchain
+function setvalue() {
 try {
 // contract Abi defines all the variables,constants and functions of the smart contract. replace with your own abi
-var abi = 
-//
-[
-	{
+var abi = [
+
+{
 		"constant": false,
 		"inputs": [
 			{
@@ -59,34 +117,28 @@ var abi =
 		"stateMutability": "view",
 		"type": "function"
 	}
+
 ]
-
-
-
-
-
-
-//
-
 //contract address. please change the address to your own
-var contractaddress = ‘0x552c75d9a7ffe01d9f50e520ce9bdba2fe6bd064   ’;
-
+var contractaddress = "0xe887ae411033ff479b202f8e30f5901659bc2c64";
 //instantiate and connect to contract address via Abi
 var myAbi = web3.eth.contract(abi);
-var myfunction = myAbi.at(contractaddress);
-//call the get function of our SimpleStorage contract
-myfunction.get.call(function (err, xname) {
-if (err) { console.log(err) }
-if (xname) {
-//display value on the webpage
-document.getElementById(“xbalance”).innerHTML = “last inserted value into the blockchain is : “ + xname;
+var myFunction= myAbi.at(contractaddress);
+//call the set function of our SimpleStorage contract
+myFunction.set.sendTransaction(document.getElementById('xvalue').value, { from: web3.eth.accounts[0], gas: 4000000 }, function (error, result) {
+if (!error) {
+console.log(result);
+} else {
+console.log(error);
 }
-});
+})
+} catch (err) {
+document.getElementById('xvalue').innerHTML = err;
 }
-catch (err) {
-document.getElementById(“xbalance”).innerHTML = err;
 }
-}
+
+
+
     </script>
 
 
