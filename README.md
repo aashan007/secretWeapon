@@ -48,7 +48,7 @@ open geth.exe
 
  ```
 
- ### Install on Linus
+ ### Install on Linux
  On Ubuntu, execute these commands
   ```
   sudo apt-get install software-properties-common
