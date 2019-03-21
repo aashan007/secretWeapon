@@ -5,6 +5,8 @@ In the current working scenario, manufacturers producing perishable products lik
 
 ## Installation
 
+### Installation of web3.js
+
 Node:
 
 ```npm install web3```
@@ -16,7 +18,6 @@ Yarn
 Meteor
 
 ```meteor npm install --save web3@1.x```
-
 
 
  
