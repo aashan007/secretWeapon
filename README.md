@@ -48,6 +48,16 @@ open geth.exe
 
  ```
 
+ ### Install on Linus
+ On Ubuntu, execute these commands
+  ```
+  sudo apt-get install software-properties-common
+  sudo add-apt-repository -y ppa:ethereum/ethereum
+  sudo apt-get update
+  sudo apt-get install ethereum
+
+   ```
+
  
 
 
