@@ -66,15 +66,17 @@ open geth.exe
 
 ## Commands
 
-```npm run clean // removes all the node_modules folders in all modules
+```
+npm run clean // removes all the node_modules folders in all modules
 npm run bootstrap // install all dependencies and symlinks the internal modules for all modules
 npm run test // runs all tests
 npm run build // runs rollup
-npm run dev // runs rollup with a watcher```
+npm run dev // runs rollup with a watcher
+```
 
 ## Contributing
 
-1. Fork it (<https://github.com/aashan007/secretWeapon>)
+1. Fork it (<https://github.com/aashan007/secretWeapongit co>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
