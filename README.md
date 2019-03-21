@@ -7,15 +7,15 @@ In the current working scenario, manufacturers producing perishable products lik
 
 Node:
 
-```npm install web3
+```npm install web3```
 
 Yarn
 
-```yarn install web3
+```yarn install web3```
 
 Meteor
 
-```meteor npm install --save web3@1.x
+```meteor npm install --save web3@1.x```
 
 
 
@@ -25,7 +25,7 @@ Meteor
 ##Commands
 
 ```npm run clean // removes all the node_modules folders in all modules
-```npm run bootstrap // install all dependencies and symlinks the internal modules for all modules
-```npm run test // runs all tests
-```npm run build // runs rollup
-```npm run dev // runs rollup with a watcher
+npm run bootstrap // install all dependencies and symlinks the internal modules for all modules
+npm run test // runs all tests
+npm run build // runs rollup
+npm run dev // runs rollup with a watcher```
