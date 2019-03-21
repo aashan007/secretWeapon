@@ -3,9 +3,9 @@
 
 In the current working scenario, manufacturers producing perishable products like medicines face huge losses due to non-adherence to standards along the supply-chain. Irrespective of whose fault it is the cost has to be beared by the producer. We intend to use blockchain to continuously monitor status and bring trust into the supply-chain. Each transaction and hand-over is implemented via smart contracts.
 
-## Installation
+## INSTALLATION
 
-### Installation of web3.js
+### web3.js
 
 Node:
 
@@ -19,6 +19,9 @@ Meteor
 
 ```meteor npm install --save web3@1.x```
 
+###Creating instance in Google CLoud
+
+[https://cloud.google.com/sql/docs/mysql/create-instance]
 
  
 
