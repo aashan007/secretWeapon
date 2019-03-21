@@ -21,7 +21,7 @@ Meteor
 
 ### Creating instance in Google CLoud
 
-[https://cloud.google.com/sql/docs/mysql/create-instance]
+https://cloud.google.com/sql/docs/mysql/create-instance
 
 ### Installing ethereum in Local system
 
@@ -36,6 +36,15 @@ brew upgrade
  ```
 brew tap ethereum/ethereum
 brew install ethereum
+
+ ```
+
+ #### Install on Windows
+
+ Download the latest stable binary,extract it
+ ```
+chdir <path to extracted binary>
+open geth.exe
 
  ```
 
