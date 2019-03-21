@@ -1,0 +1,187 @@
+commit b3e9000f6e3e503ecb93e2c7211d2bcb0426a5fc
+Author: Paulajith <paulajithc@gmail.com>
+Date:   Thu Mar 21 12:19:15 2019 +0530
+
+    updated the new ui for webpage
+
+commit 47a4c3fe404e10e90923d8abcecc2bd67654092e
+Author: Paulajith <paulajithc@gmail.com>
+Date:   Thu Mar 21 12:15:10 2019 +0530
+
+    modified package.json
+
+commit c36ef2ebbd59c4e587f3d152995a8b2fef590d64
+Author: Paulajith <paulajithc@gmail.com>
+Date:   Thu Mar 21 12:13:44 2019 +0530
+
+    modified package.json
+
+commit 5d9a784c9c934b4517f91827c167ba6f30da4608
+Author: Paulajith <paulajithc@gmail.com>
+Date:   Thu Mar 21 12:12:36 2019 +0530
+
+    removing unwanted html files
+
+commit ba86dafd838f5a10814b9d8f38032885e27feff7
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:40:32 2019 +0530
+
+    removed unwanted spaces
+
+commit 002834da7c79986b15ecfe752fd516553738cfc0
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:39:25 2019 +0530
+
+    added contributing
+
+commit e57dd27711b402712ab8ef5d652297c719a81bb5
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:37:04 2019 +0530
+
+    small correction on linux
+
+commit edbd0d0b3b4b76c75544cf86849857c5d05b1b18
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:36:21 2019 +0530
+
+    installation in linux
+
+commit 0a33fbb015d84ae15a688d0688f0239ce3f30979
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:34:22 2019 +0530
+
+    added weindows installation
+
+commit 1772f851f0a378a5ca0ea229d127cf0ae5196ef6
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:31:34 2019 +0530
+
+    added homebrew
+
+commit 25261601564634cc6c9a53cbcfe8c0cf8b94a2e3
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:26:57 2019 +0530
+
+    adding cloud instance
+
+commit c94aa3eec3a0d4f4227e0d0ae435bb2f6f3d27d0
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:23:35 2019 +0530
+
+    testing subheader tag
+
+commit 535614d98da55e2209083fde211bd9209fadaf9f
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:20:50 2019 +0530
+
+    removed Header bugs
+
+commit 3177d0e364a36980e9b89bdf1d0ddff7f1d3176c
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:19:39 2019 +0530
+
+    removed some readme bugs
+
+commit e7d95079f5905da79b13e4d8e8853dc397ef0e77
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 08:17:31 2019 +0530
+
+    added installation of web3
+
+commit d84eae54c1588a051d08c4adb476c024cbc47ede
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Thu Mar 21 07:43:22 2019 +0530
+
+    Introduction of README
+
+commit 3285ec1c95ce46e4346dfedb0aa471867f0c9aa2
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 19:07:29 2019 +0530
+
+    removed bugs on HTML page
+
+commit b6f43d7f624acc997db7890e3af6b094b4736fb2
+Merge: 02d6302 ebffd8e
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 18:12:00 2019 +0530
+
+    M
+
+commit 02d6302a3dc272ca8d39195bfeb4ebc963e7c973
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 18:09:51 2019 +0530
+
+    testing
+
+commit ebffd8e3115b18b54e2255b4d4ffbff858be4aba
+Author: jasfin <mazhar@cet.ac.in>
+Date:   Wed Mar 20 16:02:38 2019 +0530
+
+    Version changes verified in genesis
+
+commit 92fddfc81b7818cdcfd0d8237622f185b291e682
+Author: jasfin <uppuadarsh@gmail.com>
+Date:   Wed Mar 20 15:46:40 2019 +0530
+
+    Created a private Blockchain network
+
+commit 00cc8a9d0cea20fc0ca81a36376feb9adaffabff
+Merge: 6a152a2 b283e92
+Author: jasfin <uppuadarsh@gmail.com>
+Date:   Wed Mar 20 15:38:54 2019 +0530
+
+    Created genesis block
+
+commit 6a152a2304d7545b1601daaec701127b7a468fff
+Author: jasfin <uppuadarsh@gmail.com>
+Date:   Wed Mar 20 15:30:42 2019 +0530
+
+    Created genesis block
+
+commit b283e92888e298b53d15de305f0d52ada5921450
+Author: arv-sajeev <arvind.sajeev@gmail.com>
+Date:   Wed Mar 20 15:22:10 2019 +0530
+
+    python client based on sockets for raspi sensor
+
+commit 991c5da057ffb79e1570be94dc5645732c920838
+Author: arv-sajeev <arvind.sajeev@gmail.com>
+Date:   Wed Mar 20 15:19:40 2019 +0530
+
+    Initialising Raspberry code
+
+commit 94846c562f864b16f6dda2cb062249e44152915d
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 12:16:39 2019 +0530
+
+    added Styling file
+
+commit 6302ab4eab476470d0c344263f19daec927fa6c2
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 12:14:56 2019 +0530
+
+    added first HTML page
+
+commit d078593b0e70d3f324ad8f77d8f75a25ca2bce51
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 12:14:01 2019 +0530
+
+    added web3 modules
+
+commit 6de68255ce38f196e5e53accabdaddc3915ae0e2
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 11:57:31 2019 +0530
+
+    added package .json
+
+commit 85e81f5823e965e8aca5e42e80818bd196ebbe09
+Author: aashan007 <sarathchandran1995@gmail.com>
+Date:   Wed Mar 20 11:37:22 2019 +0530
+
+    Kickstarted Final year project
+
+commit 9926b3d5f1157672561a67b44d266e99bda6047d
+Author: Sarathchandran S <aashan007@users.noreply.github.com>
+Date:   Wed Mar 20 11:23:50 2019 +0530
+
+    Initial commit
