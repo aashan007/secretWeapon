@@ -3,7 +3,7 @@
 
 In the current working scenario, manufacturers producing perishable products like medicines face huge losses due to non-adherence to standards along the supply-chain. Irrespective of whose fault it is the cost has to be beared by the producer. We intend to use blockchain to continuously monitor status and bring trust into the supply-chain. Each transaction and hand-over is implemented via smart contracts.
 
-##Installation
+## Installation
 
 Node:
 
@@ -22,7 +22,7 @@ Meteor
  
 
 
-##Commands
+## Commands
 
 ```npm run clean // removes all the node_modules folders in all modules
 npm run bootstrap // install all dependencies and symlinks the internal modules for all modules
