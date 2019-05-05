@@ -32,9 +32,9 @@ app.post('/auth', function(request, response) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
 				request.session.username = username;
-				var address='http://'+results[0]['ip']+'/home';
-				console.log(address);
-				response.redirect('localhost:8000');
+				var address=results[0]['ip']+'/home';
+				//console.log(address);
+				response.redirect('\home');
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
@@ -55,4 +55,4 @@ app.get('/home', function(request, response) {
 	response.end();
 });
 
-app.listen(3000);
+app.listen(8000);
