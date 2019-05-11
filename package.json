@@ -9,6 +9,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "web3": ""
   }
 }
