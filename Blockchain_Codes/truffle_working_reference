@@ -1,0 +1,248 @@
+
+install node and check by node -v
+
+truffle framework allows us to create decentralized apps on the ethreurm n/w. it gives 
+tools to write sm with solidity pggm lngge , tools for testing our sm, tools to deploy our sm to the blockchain
+client side app can also be developed inside truffle  
+
+Set up metamask ext for google chrome: used to connect to the local etherem n/w with our personal account and interact with the sm.
+install Ganache. with ganache we have a local blockchain n/w.
+use sublime and install ethereum package
+create project directory
+inside project directory run truffle unbox pet-shop
+commands:
+   truffle compile,migrate,test
+   npm run dev
+
+truffle gives a box which can be unboxed and it provides a suitable environment for our project development 
+migrations.sol is the contract that will handle our migrations when we deploy our sm to bc
+migration dir-where our migration files live when we deploy our sm to bc
+when we deploy our sm we change the state of the bc like state change of database.
+sm- all business logic will lie in the smart contract,all rules that govern the election that only one vote is allowed per person
+code inside Election.sol
+inside migrations directory create another deploy_contracts.js and copy the contents of initial_migration.js into it and replace migrations as Election,, 
+
+PART 1 - SMOKE TEST:
+run truffle migrate after updating election.sol and 
+2_deploy_contracts.js in migrations directory
+
+do truffle console to see if the deployment worked
+do Election.deployed().then(function(instance) { app=instance})
+do app.address to get the address of sm in our bc, this isnt the address of the account( okay !!) 
+do app.candidate() to see value of the candidate 
+now check ganache to see balace of first account reduced bcs reads on the bc are free and writes on the bc costs gas
+
+PART 2 - list candidates:
+update election.sol and now we need to migrate our contract
+do truffle migrate --reset. this is because all data in the
+bc is immutable, so we need to push a new copy of our contract so we will be assigned a new address, thats y we must be careful bcs data writing cost may rise.
+do truffle migrate --reset
+do truffle console
+do Election.deployed().then(function(i) {app=i;})
+do app.address to find a new address
+do app.candidates(1)
+do app.candidates(1).then(function(c) {candidate=c;}) to copy 1st candidate to variable candidate
+do candidate
+do candidate[0]
+do candidate[0].toNumber() to display as a number
+do candidate[2].toNumber() to display votecount
+here voters are any address connected to the bc
+we have access to the addresses in ganache in our console with web3
+do web3.eth.accounts to show all accounts
+do web3.eth.accounts[0]
+do web3.eth.accounts[4]
+
+next is the testing part to ensure that the contract is bugfree,,if bugs we may have to deploy a new copy of the sm
+create election.js in test directory
+the test is written in js, truffle comes bundled with the mocha testing framework and chai library, provides all to write the testing file
+'it' is from mocha 
+assert is from chai
+create and update election.js in test directory
+do truffle test
+
+update the election.js file in test directory to add more tesing , here we test if the candidates have the correct id,name and votecount initially.
+again run truffle test
+
+next using html and javascrip we write the client side application to list our candidates on the app
+update index.html 
+next see app.js
+we call init at bottom and then in init we initialize web3,our contract,after that we render out the application on the page. initlzg web3 connects local bc to our client side app.
+
+initWeb3: here an instance of web3 is provided by metamask and is the list of accounts provided by metamask( remember in console we displayed it ).now web3.Metamask is the ext that turns our browser into a bc browser, a broswer that can connect to the etherreum n/w. when we log into metamask it is gonna provide us with a web3 provider , when it does we set this currentProvider to the applications provider.
+
+initContract: this fn loads our contract into our front end app so that we can interact with it.
+it loads the election.json file into election variable and
+then create a trufflecontract of this election and this trufflecontract is the actual contract with which we interact in the app and set the provider of this contract=provider of the app that we got from the init fn.
+getjson comes from the browser sinc package.
+
+next we have the render fn that will layout everything on the page. Inside render(), see loader and content
+loader.show()
+content.hide()
+getCoinbase() will return the current account with which we are connected to the bc now
+
+lite-server is a package given by pet-shop box, is in package.json.
+Inside bs-config.json, reloading of our page lies
+now clean up other useless things, del the png images, pets.json file and the images in images folder
+
+do truffle migrate --reset
+npm run dev
+
+now loginto metamask 
+then choose custom-rpc in metamask and give the address as that of ganache at 7545.
+to run on a specific account u have to import an address by copying the private key into the metamask import account option. now we connected the front end app
+to the bc
+
+next add the voting fuctionality to our smart contract
+define the vote(uint _candidateId). 
+To make sure that a voter casts only one vote: when we
+call any fn in our contract we get his address by 
+msg.sender, msg is the metadata passed on to that fn.
+create a mapping called voters, from address to bool.
+do truffle migrate --reset
+do truffle console
+and Election.deployed().then(function(i) {app=i})
+do app.vote(1, {from:web3.eth.accounts[0]} ) 
+above statement means we want the first account to cast his vote. Here it is the from metadata that solidity translates and captures with msg.sender. Ethereum n/w uses the concept of gas to determing what user has to pay when they call this fn. gas!=ether and ether caused = gasprice*gasusage 
+
+LAST PART : Watch Events
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+later on run truffle migrations command to deploy or 
+push the smart contract on to the ethereum blockchain,,
+
+truffle console command
+then run Election.deployed().then(function(instance) 
+{ app=instance} ) ,here Election.deployed() is a promise
+
+then run app.address, and then app.candidate()
+
+PART 2 - List candidates
+mappint(uint => Candidate) public candidates;
+//each time a key-value map is made , we write to the 
+//blockchain and change state of smartcontract
+
+since data in a BC is immutable, each time we make a change
+to our smart contract, we need to push the new smart
+contract into the blockchain using: truffle migrate --reset
+
+run : truffle console
+Election.deployed().then(function(i) { app=i; })
+app.candidates()
+app.candidates(1)//displays values of that candidate
+app.candidates(2)//  "  "                "
+app.candidates(99)// Null values
+app.candidatesCount() //output=2
+//also do the following
+app.candidates(1).then(function(c) { candidate=c; })
+candidate //outputs value of candidate 1
+//to access each data value of the structure candidate do,
+candidate[0] //outputs id
+candidate[1] //outputs 'Candidate 1', 
+//convert candidate id to number by following
+candidate[0].toNumber()
+//we want anyone connected to this BC to be able to vote
+//so we use web3, 
+//type web3,web3.eth,web3.eth.accounts- will display the 
+// addresses of each account in ganache
+//here eth obj gives access to all accounts connected to 
+//our n/w.this is imp when we connect client side app to vote.
+//testing contracts are imp to make sure they are bug free,
+//bcs it results in wastage of ether
+
+
+inside test folder, create election.js
+mocha testing framework( eg: it(..) ) and chai( eg:assert)
+run the test : truffle test //displays success/failure of test
+
+//use html and js to diplay candidates on cliet side application, 
+see index.html and app.js files
+in app.js file, initialize initWeb3() first
+intilzng web3 connects client side app to local BC
+metamask is ext that turns chrome browser to a 
+BC browser, that connects our browser to a BC n/w.
+When we log into metamask it provides us with a web3provider, then we set this web3provider to our apps web3provider
+
+next u initialize the contract,by first loading a json
+file and us it to generate a trufflecontract and set the
+provider of this fnctn. then render this app
+
+nxt we have render fn that does 
+1. display the account that is connected to BC - getCoinbase will provide the account that we are currently
+connected to the BC with. 
+2. list out all the candidates in election
+
+delete some files we dont need that is provided by the
+pet-box, so delete images in test, pets.json file and the images folder
+
+do : truffle migrate --reset
+nxt inside election folder do npm run dev
+so, localhost:3000 loads
+its still loading and no data from smart contract is seen
+bcs client side app thats running isn't connected to the local BC instance, so use the metamask extension
+accept the conditions and connecet to main network
+run ganache and check port=7545, nxt go to 
+metamask and connect to custum rpc its url will be
+https://localhost:7545 and save
+so in browser , we see the contract data
+
+from ganache copy an account's private key and back
+in metamask import an account by pasting its private
+key, so we are conenctd to that account .
+Now front end app is connected to the BC.
+code at this point is list candidates
+
+
+Last part: CAST VOTE
+after writing the vote cast fn, do 
+truffle console
+Election.deployed().then(function(i) { app=i} )
+web3.eth.accounts// lists the accounts
+//for account0=web3.eth.accounts[0] to vote for a candidate
+app.vote(1, { from: web3.eth.accounts[0] }), metadata
+   //here is translated to msg.sender
+
+now, we get a transaction receipt. when we write a BC, we
+create a transaction. here blocknumber,gasused,blockhash
+etc are shown here. reads in the bC are free and writes 
+cause gas. gas!=ether, ether amount caused=gas used*gas price.
+
+next update election.js inside test directory to make sure that votecount of the voted candidate is incremented
+and that voter is added to the mapping to make sure he 
+voted
+
+//for each change in the smart contract
+truffle migrate --reset
+truffle console
+
+Election.deployed().then(function(i) { app=i })
+app.vote(1, { from:web3.eth.account[0] })
+//voted once above
+nxt time error if same is voted
+truffle test
+
+
+
+*/ 
+
