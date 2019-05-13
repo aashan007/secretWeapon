@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      //function initMap() {};
+      
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', "http://localhost:3000/api/location", true);
+      xhr.send();
+ 
+      xhr.onreadystatechange = processRequest;
+      var response;
+      function processRequest(e) {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+         response = JSON.parse(xhr.responseText);
+         //alert(response.lat);
+         console.log(response.lat);
+         console.log(response.long);
+     }
+}
+
+
+
+      
+       function initMap() {
+
+        var options = {
+            zoom : 8,
+            center : {lat : response.lat, lng: response.long}
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'),options);
+
+
+
+
+
+
+
+        // marker
+
+        var marker = new google.maps.Marker({
+            position : {lat: response.lat, lng: response.long},
+            map: map
+            
+        });
+        
+      }
+    
+    /*setInterval(function(){
+        mapping();
+    },5000);*/
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfi5GBmmrmPknei817-F4QD5uHHteLn8w&callback=initMap">
+    </script>
+  </body>
+</html>
