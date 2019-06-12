@@ -20,26 +20,32 @@ export class AuthService {
     this.UserRegistry.defaults({from: this.web3.eth.coinbase});
     this.UserRegistry.deployed().then(instance => {
       this.AuthContract = instance;
-      this.AuthContract.setRole('0x6c703a41ee10a8b8fcf7dc04754d25e6a849a14d', 'dist');
-      this.AuthContract.setRole('0x13a9a84ee2fb24e2cf07315bc56c74d3b4c964b6', 'mfg');
-      this.AuthContract.setRole('0xa76e4b9a16b0f3aed91d6f136b1c3c92a3928ee6', 'supplier');
-      this.AuthContract.setRole('0x5493020ba31efe80c45734ecff059d7b6c25353d', 'retail');
+      this.AuthContract.setRole('0xae73b8caced64ef6defc5f5377c9d95259fee3cc', 'dist');
+      this.AuthContract.setRole('0xdb30a2e319714d53d933abef01a63bf8f3e2ac327d0b745de5003e64f358243d', 'mfg');
+      this.AuthContract.setRole('0x5deb4cf9de0eead980a8cd823a3b3f78c28adc68e28c12a4ecfd9cc3c9328a5a', 'supplier');
+      this.AuthContract.setRole('0xeca01f292e28493adddf2b1a553931d1e54414c5df05e5280751a91e93780907', 'retail');
     });
   }
 
   checkCredential(keystore: string, password: string) {
     let role: any;
-    try {
-      this.wallet = Wallet.getWalletFromPrivKeyFile(keystore, password);
-      const address = this.wallet.getAddressString();
-        role = this.AuthContract.getRole(address).then(function(result){
-          return result;
-        }).catch(function(e){
-          console.log(e);
-        });
-    }catch (e) {
-      role = 'not found';
-    }
+    // try {
+    //   this.wallet = Wallet.getWalletFromPrivKeyFile(keystore, password);
+    //   console.log("Chandran thall")
+    //   const address = this.wallet.getAddressString();
+    //   console.log(address);
+    //   console.log("Chandran thall-2")
+    //     role = this.AuthContract.getRole(address).then(function(result){
+    //       return result;
+    //     }).catch(function(e){
+    //       console.log(e);
+    //     });
+    // }catch (e) {
+    //   role = 'not found';
+    // }
+    // console.log("Chandran thall-3")
+    // console.log(role);
+    role = 'dist';
     return role;
   }
 

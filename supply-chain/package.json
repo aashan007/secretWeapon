@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ng_serve":"ng serve",
-    "start_ipfs":"node src/ipfs.js"
+    "ng_serve": "ng serve",
+    "start_ipfs": "node src/ipfs.js"
   },
   "private": true,
   "dependencies": {

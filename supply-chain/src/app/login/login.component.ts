@@ -37,12 +37,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     const password = this.passwd.nativeElement.value;
-    const response = this.auth.checkCredential(this.fileContent, password).then(result => {
+    var result = this.auth.checkCredential(name,password);
+    // const response = this.auth.checkCredential().then(function(result)  {
+      // console.log("Paul thall-1")
       if (result == 'dist') { this.router.navigate(['/distributor']); };
       if (result == 'mfg') { this.router.navigate(['/manufacturer']); };
-      if (result == 'retail') { this.router.navigate(['/retailer']); };
+      if (result == 'retail') { 
+        // console.log("Paul thall-2");
+        this.router.navigate(['/retailer']); };
       if (result == 'supplier') { this.router.navigate(['/supplier']); };
-    });
+    // });
 
   }
 
