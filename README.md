@@ -1,6 +1,12 @@
 # Blockchain and IOT towards traceability and transparency in supply-chains
 
-In the current working scenario, manufacturers producing perishable products like medicines face huge losses due to non-adherence to standards along the supply-chain. Irrespective of whose fault it is the cost has to be beared by the producer. We intend to use blockchain to continuously monitor status and bring trust into the supply-chain. Each transaction and hand-over is implemented via smart contracts.
+Blockchain and Internet of Things are two revolutionary technologies that have
+completely changed the tech scenario. These breakthroughs owe their success
+to the increase in computational resources and network connectivity. Blockchain
+has usually found it’s use restricted to cryptocurrencies due to the lack of proper
+platforms to properly implement functioning decentralised systems, with the re-
+lease of the ethereum platform scores of developers have attempted to incorporate
+blockchain to find solutions to everyday real life problems. This project encompasses the benefits of both IoT and Blockchain to introduce decentralised trust agents into a supplychain, its real-timeness also prings in transparency and traceability thereby redifining the entire industry of supplychain logistics.
 
 ## INSTALLING ON REMOTE SERVER
 
@@ -42,9 +48,6 @@ In the current working scenario, manufacturers producing perishable products lik
 4. `/manufacturer`
 5. `/supplier`
 
-### Todo:
-
-1. Access IPFS from browser (Remove separate script for IPFS upload).
 
 ## Technologies & Languages Used:
 1. Angular4 (Typescript/Javascript)
